@@ -2,6 +2,10 @@
     # Establish connection to mysql database
 	$conn = new mysqli('localhost', 'store', 'qwerty12qwaszx', "store");
 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+      echo "Connected successfully";
 	# Get parameters from POST request
 	$start = $conn->real_escape_string($_POST['start']);
 	$limit = $conn->real_escape_string($_POST['limit']);
