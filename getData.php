@@ -2,11 +2,15 @@
     # Establish connection to mysql database
 	$conn = new mysqli('localhost', 'store', 'qwerty12qwaszx', "store");
 
+    if (! $conn){
+        throw new Db_Connect_Error(); 
+    }   
+
 	# Get parameters from POST request
-	$start = $conn->real_escape_string($_POST['start']);
-	$limit = $conn->real_escape_string($_POST['limit']);
-	$limit = 2000;
-	$query = $_POST['query'];
+	#$start = $conn->real_escape_string($_POST['start']);
+	#$limit = $conn->real_escape_string($_POST['limit']);
+	#$limit = 2000;
+	#$query = $_POST['query'];
 	
 #	$queryString = 'WHERE ';
 #
@@ -24,15 +28,17 @@
 #		" . $queryString . " 
 #		ORDER BY `time` DESC
 #        LIMIT $start, $limit");
+
+    $query = "SELECT * FROM Product";
         
-    $sqlPosts = $conn->query('SELECT * FROM Product;');
+    $result = mysql_query($query, $conn);
 
     # Return max if no results found
-	if ($sqlPosts->num_rows > 0) 
-	{
-        $row = mysql_fetch_array($sqlPosts);
-        foreach($row as $data) {
-            $response = "TEST";
+    if ($result) {
+        $response = "";
+        while($row = mysql_fetch_array($result)) {
+            $response .= "TEST";
+
             #$response .= `
             #    <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:400px; margin:20px">
             #        <div style="position: absolute;width: 100px;height: 24px;right: 0px;top: 0px;background: #C4C4C4;">
@@ -56,9 +62,10 @@
             #        </button>
             #    </div>
             #    `;
-		}
-		exit($response);
-	} 
-	else
-		exit('reachedMax');
+        }
+        return $response;
+    }
+    else {
+        return mysql_error();
+    }
 ?>
