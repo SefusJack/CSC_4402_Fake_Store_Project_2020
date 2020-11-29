@@ -213,6 +213,9 @@
                     start += limit;
                     $("#results").append(response);
                 }
+            },
+            error: function(err) {
+                console.log(err)
             }
         });
     }
