@@ -30,9 +30,9 @@
     # Return max if no results found
 	if ($sqlPosts->num_rows > 0) 
 	{
-		$response = "";
+		$response = $sqlPosts->num_rows;
 
-		while($data = $sqlPosts->fetch_array()) {
+		while($data = mysql_fetch_assoc($sqlPosts)) {
             $response = "TEST";
             $response += `
                 <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:400px; margin:20px">
