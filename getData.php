@@ -1,4 +1,6 @@
-<?php
+<?
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
     # Establish connection to mysql database
 	$conn = new mysqli('localhost', 'store', 'qwerty12qwaszx', "store");
 
@@ -30,10 +32,10 @@
 #        LIMIT $start, $limit");
 
     $query = "SELECT * FROM Product";
-    #    
+    
     $result = $conn->query($query);
-#
-    echo $result;
+
+    echo var_dump($result);
 
     # Return max if no results found
 #    if ($result) {
