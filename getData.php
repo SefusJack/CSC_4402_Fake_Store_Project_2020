@@ -31,9 +31,9 @@
 
     $query = "SELECT * FROM Product";
     #    
-    $result = mysql_query($query, $conn);
+    $result = $conn->query($query);
 #
-    #echo $result;
+    echo $result;
 
     # Return max if no results found
 #    if ($result) {
