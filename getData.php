@@ -33,7 +33,7 @@
         
     $result = mysql_query($query, $conn);
 
-    echo "test";
+    echo $result;
 
     # Return max if no results found
 #    if ($result) {
