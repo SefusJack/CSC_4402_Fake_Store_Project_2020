@@ -36,9 +36,9 @@
     $result = $conn->query($query);
 
     # Return max if no results found
-    if ($result) {
+    if ($result->num_rows > 0) {
         $response = "";
-        while($row = mysqli_fetch_array($result)) {
+        while($row = $result->fetch_assoc()) {
             $response .= "TEST";
 
             $response .= `
