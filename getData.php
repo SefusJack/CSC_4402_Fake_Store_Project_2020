@@ -25,7 +25,7 @@
 #		ORDER BY `time` DESC
 #        LIMIT $start, $limit");
         
-    $sqlPosts = $conn->query('SELECT * FROM Products;');
+    $sqlPosts = $conn->query('SELECT * FROM Product;');
 
     # Return max if no results found
 	if ($sqlPosts->num_rows > 0) 
