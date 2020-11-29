@@ -3,11 +3,13 @@ $con = new mysqli("localhost", "store", "qwerty12qwaszx", "store");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+echo "Connected successfully.";
 
-//sql = "INSERT INTO Cart (Customer_ID, Product_ID, Quantity) VALUES ('$_POST[Name]', '$_POST[Address]', '$_POST[Email]', $_POST[Username]', '$_POST[Password]');";
+$date = date("Y/m/d");
+
+$sql = "INSERT INTO Product (Vendor_ID, Product_Type, Product_Name, Description, Image_URL, Date, Cost, Stock) VALUES ('$_POST[Vendor]', '$_POST[ProductType]', '$_POST[Name]', $_POST[Description]', '$_POST[Image]', '$date', '$_POST[Cost]', '$_POST[Quantity]');";
 if ($con->query($sql)){
-  echo "New record is inserted sucessfully";
+  echo " New record is inserted sucessfully.";
 }
 else{
   echo "Error: ". $sql ."
