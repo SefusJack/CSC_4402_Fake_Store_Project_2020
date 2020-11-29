@@ -13,7 +13,7 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  var sql = "INSERT INTO Order (Order_ID, Product_ID) VALUES ('" + order_id + "', '" + product_id + "');";
+  var sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('" + order_id + "', '" + product_id + "');";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Inserted");
