@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 $con = mysql_connect("localhost","username","password");
 if (!$con)
@@ -14,3 +16,5 @@ if (!mysql_query($sql,$con))
 echo "1 record added";
 mysql_close($con)
 ?>
+</body>
+</html>
