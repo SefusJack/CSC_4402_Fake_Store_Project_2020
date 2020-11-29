@@ -29,11 +29,11 @@
 #		ORDER BY `time` DESC
 #        LIMIT $start, $limit");
 
-    $query = "SELECT * FROM Product";
-        
-    $result = mysql_query($query, $conn);
-
-    echo $result;
+    #$query = "SELECT * FROM Product";
+    #    
+    #$result = mysql_query($query, $conn);
+#
+    #echo $result;
 
     # Return max if no results found
 #    if ($result) {
