@@ -33,6 +33,8 @@
         
     $result = mysql_query($query, $conn);
 
+    echo $result;
+
     # Return max if no results found
     if ($result) {
         $response = "";
@@ -63,9 +65,9 @@
             #    </div>
             #    `;
         }
-        return $response;
+        echo $response;
     }
     else {
-        return mysql_error();
+        echo mysql_error();
     }
 ?>
