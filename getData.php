@@ -1,6 +1,6 @@
 <?php
     # Establish connection to mysql database
-	$conn = new mysqli('localhost', 'user', 'password', "store");
+	$conn = new mysqli('localhost', 'store', 'qwerty12qwaszx', "store");
 
 	# Get parameters from POST request
 	$start = $conn->real_escape_string($_POST['start']);
