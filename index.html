@@ -199,7 +199,7 @@
         if (reachedMax)
             return;
         $.ajax({
-            url: 'getData.php',
+            url: './getData.php',
             dataType: 'text',
             //data: {
             //    start: 0,
@@ -207,6 +207,7 @@
             //    query: ''
             //},
             success: function (response) {
+                console.log(response)
                 if (response == "reachedMax")
                     reachedMax = true;
                 else {
