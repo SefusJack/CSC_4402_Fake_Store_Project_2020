@@ -1,10 +1,10 @@
+var mysql = require('mysql');
+
 var name = "";
 var email = "";
 var address = "";
 var username = "";
 var password = "";
-
-var mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "localhost",
