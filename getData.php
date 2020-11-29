@@ -29,9 +29,9 @@
 #		ORDER BY `time` DESC
 #        LIMIT $start, $limit");
 
-    #$query = "SELECT * FROM Product";
+    $query = "SELECT * FROM Product";
     #    
-    #$result = mysql_query($query, $conn);
+    $result = mysql_query($query, $conn);
 #
     #echo $result;
 
