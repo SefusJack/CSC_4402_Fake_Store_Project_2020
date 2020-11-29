@@ -37,12 +37,8 @@
 
     # Return max if no results found
     if ($result->num_rows > 0) {
-        $response = "";
         while($row = $result->fetch_assoc()) {
-            $response .= "TEST";
-
-            $response .= `
-                <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:400px; margin:20px">
+            echo (`<div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:400px; margin:20px">
                     <div style="position: absolute;width: 100px;height: 24px;right: 0px;top: 0px;background: #C4C4C4;">
                         <p class="text-center font-medium" style="color: #FFFFFF">
                             Test
@@ -62,12 +58,10 @@
                     <button style="position: absolute;left:20;width:220;height: 32px;bottom: 10px;background: #FFFFFF;border: 1px solid #9DC2FF;box-sizing: border-box;border-radius: 4px;">
                         <p class="text-center" style="position: absolute;height: 24px;left: 12px;right: 12px;top: calc(50% - 24px/2);font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;">Add To Cart</p>
                     </button>
-                </div>
-                `;
+                </div>`);
         }
-        return $response;
     }
     else {
-        return mysqli_error();
+        echp("ELSE");
     }
 ?>
