@@ -190,7 +190,7 @@
         start = 0;
         reachedMax = false;
         query = "";
-        $(".results").html("");
+        $("#results").html("");
         getData();
     }
     
@@ -210,7 +210,7 @@
                     reachedMax = true;
                 else {
                     start += limit;
-                    $(".results").append(response);
+                    $("#results").append(response);
                 }
             }
         });
