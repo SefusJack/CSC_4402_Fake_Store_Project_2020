@@ -38,7 +38,7 @@
     # Return max if no results found
     if ($result) {
         $response = "";
-        while($row = mysql_fetch_array($result)) {
+        while($row = mysqli_fetch_array($result)) {
             $response .= "TEST";
 
             $response .= `
@@ -68,6 +68,6 @@
         return $response;
     }
     else {
-        return mysql_error();
+        return mysqli_error();
     }
 ?>
