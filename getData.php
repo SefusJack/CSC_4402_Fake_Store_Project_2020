@@ -1,21 +1,26 @@
 <?php
-	$conn = new mysqli('localhost', 'store', 'qwerty12qwaszx', "store");
+$servername = "localhost";
+$username = "store";
+$password = "qwerty12qwaszx";
+$dbname = "store";
 
-    $query = "SELECT * FROM Product";
-    
-    $result = $conn->query($query);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-    $response = "";
+$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$result = $conn->query($sql);
 
-    # Return max if no results found
-    if ($result->num_rows > 0) {
-        $response = "IF";
-        while($row = $result->fetch_assoc()) {
-            $respone = "TEST";
-        }
-        return $response;
-    }
-    else {
-        return "FALSE";
-    }
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "<div>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
 ?>
