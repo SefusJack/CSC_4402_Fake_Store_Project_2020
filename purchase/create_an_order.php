@@ -5,8 +5,8 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1") <= 0) {
-  die();
+if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()[0] <= 0) {
+  exit();
 }
 
 $date = date('Y-m-d H:i:s');
@@ -17,8 +17,7 @@ if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
 else{
-  echo "Error: ". $sql ."
-". $con->error;
+  echo "Error: ". $sql . $con->error;
 }
 $order_id = $con->insert_id;
 
@@ -28,8 +27,7 @@ if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
 else{
-  echo "Error: ". $sql ."
-". $con->error;
+  echo "Error: ". $sql . $con->error;
 }
 
 
@@ -48,8 +46,7 @@ if ($result->num_rows > 0) {
         echo "New record is inserted sucessfully";
       }
       else{
-        echo "Error: ". $sql ."
-      ". $con->error;
+        echo "Error: ". $sql . $con->error;
       }
 
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID, Quantity) VALUES ('$order_id', '$product_id', '$quantity');";
@@ -57,8 +54,7 @@ if ($result->num_rows > 0) {
         echo "New record is inserted sucessfully";
       }
       else{
-        echo "Error: ". $sql ."
-      ". $con->error;
+        echo "Error: ". $sql . $con->error;
       }
   }
 }

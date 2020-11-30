@@ -32,47 +32,21 @@
     </body>
 
 <script type="text/javascript">
-    var start = 0;
-    var limit = 20;
-    var query = '';
-    var reachedMax = false;
-    var searched = false;
     $(document).ready(function () {
         onSubmit();
     });
-    //$(window).scroll(function () {
-    //    if ($(window).scrollTop() + $(window).innerHeight() > $(document).height() - 1) {
-    //        getData();
-    //    }
-    //});
+
     function onSubmit() {
-        searched = true;
-        start = 0;
-        reachedMax = false;
-        query = "";
-        //$("#results").html("");
         getData();
     }
     
     function getData() {
         if (reachedMax)
-            return;
         $.ajax({
             url: 'getData.php',
             dataType: 'text',
-            //data: {
-            //    start: 0,
-            //    limit: 20,
-            //    query: ''
-            //},
             success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
-                }
+                $("#results").append(response);
             },
             error: function(err) {
                 console.log(err)
@@ -89,13 +63,7 @@
                 cart_id: id,
             },
             success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
-                }
+                $("#results").append(response);
             },
             error: function(err) {
                 console.log(err)
