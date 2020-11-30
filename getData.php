@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
                 </p>
             </div>
 
-            <div style="position: absolute;height: 218px;left: 20px;right: 20px;top: 25px;background: black;"></div>
+            <div style="position: absolute;height: 218px;left: 20px;right: 20px;top: 25px;background_image: url(\'' . $image_url . '\');"></div>
             <div style="position: absolute;left: 20px;right: 20px;top: 250px;font-family: Inter;font-style: normal;font-weight: normal;font-size: 16px;color: #19191D;">
                 ' . $product_name . '
             </div>
