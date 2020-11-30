@@ -42,10 +42,10 @@ if ($result->num_rows > 0) {
         echo "Error: ". $sql ."
       ". $con->error;
       }
+      $newstock = $stock - $quantity;
+      $sql = "UPDATE Product SET Stock=$newstock WHERE Product_ID=$product_id";
+      $result2 = $con->query($sql);
   }
 }
-$newstock = $stock - $quantity;
-$sql = "UPDATE Product SET Stock=$newstock WHERE Product_ID=$product_id";
-$result = $con->query($sql);
 
 ?>
