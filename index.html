@@ -17,37 +17,36 @@
             </ul>
         </nav>
         <div style="justify-content: center; display: flex;">
-            
-            <div  style="left:20px;right:20px;  background-color: white; width:80%; padding:10px">
+            <div style="left:20px;right:20px;  background-color: white; width:80%; padding:10px">
                 <div class="row justify-content-between" style="margin-right: 0; margin-left: 0;">
                     <div style="color: cornsilk;">
                         <div class="form-check form-check-inline active-form-check-inline justify-content-center" style=" border-radius: 25px; height:38px; width:100px">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1" style="display: none;">
-                            <label class="form-check-label" for="inlineRadio1">Fruit</label>
+                            <input class="form-check-input" type="checkbox" name="fruitRadio" id="fruitRadio" value="option1" style="display: none;">
+                            <label class="form-check-label" for="fruitRadio">Fruit</label>
                           </div>
                           <div class="form-check form-check-inline active-form-check-inline justify-content-center" style=" border-radius: 25px; height:38px; width:100px">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2" style="display: none;">
-                            <label class="form-check-label" for="inlineRadio2">Vegetable</label>
+                            <input class="form-check-input" type="checkbox" name="vegetableRadio" id="vegetableRadio" value="option2" style="display: none;">
+                            <label class="form-check-label" for="vegetableRadio">Vegetable</label>
                           </div>
                           <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3" style="display: none;">
-                            <label class="form-check-label" for="inlineRadio3">Another</label>
+                            <input class="form-check-input" type="checkbox" name="meatRadio" id="meatRadio" value="option3" style="display: none;">
+                            <label class="form-check-label" for="meatRadio">Meat</label>
                           </div>
                           <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option4" style="display: none;">
-                            <label class="form-check-label" for="inlineRadio4">Another</label>
+                            <input class="form-check-input" type="checkbox" name="snackRadio" id="snackRadio" value="option4" style="display: none;">
+                            <label class="form-check-label" for="snackRadio">Snack</label>
                           </div>
                           <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option5" style="display: none;">
-                            <label class="form-check-label" for="inlineRadio5">Another</label>
+                            <input class="form-check-input" type="checkbox" name="seafoodRadio" id="seafoodRadio" value="option5" style="display: none;">
+                            <label class="form-check-label" for="seafoodRadio">Seafood</label>
                           </div>
                           <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option6" style="display: none;">
-                            <label class="form-check-label" for="inlineRadio6">Another</label>
+                            <input class="form-check-input" type="checkbox" name="dessertRadio" id="dessertRadio" value="option6" style="display: none;">
+                            <label class="form-check-label" for="dessertRadio">Dessert</label>
                           </div>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" style="width: 240" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="dropdown-button" type="button" class="btn btn-secondary dropdown-toggle" style="width: 240" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sort By A-Z
                         </button>
                         <div class="dropdown-menu">
@@ -59,8 +58,8 @@
                         </div>
                     </div>
                     <div style="justify-content: stretch; display: flex;">
-                        <input class="form-control my-0 py-1 lime-border" type="text"  aria-label="Search" style="border-bottom-right-radius: 0; border-top-right-radius: 0;">
-                        <button class="btn btn-secondary" style="border-bottom-left-radius: 0; border-top-left-radius: 0;">
+                        <input id="search-bar" class="form-control my-0 py-1 lime-border" type="text"  aria-label="Search" style="border-bottom-right-radius: 0; border-top-right-radius: 0;">
+                        <button onclick="OnSubmit()" class="btn btn-secondary" style="border-bottom-left-radius: 0; border-top-left-radius: 0;">
                             Search
                         </button>
                     </div>
@@ -114,34 +113,31 @@
     var query = '';
     var reachedMax = false;
     var searched = false;
+
     $(document).ready(function () {
         onSubmit();
     });
-    //$(window).scroll(function () {
-    //    if ($(window).scrollTop() + $(window).innerHeight() > $(document).height() - 1) {
-    //        getData();
-    //    }
-    //});
+    
     function onSubmit() {
-        searched = true;
-        start = 0;
-        reachedMax = false;
-        query = "";
-        //$("#results").html("");
         getData();
     }
     
     function getData() {
-        if (reachedMax)
-            return;
+        $("#results").text("");
+        
         $.ajax({
             url: 'getData.php',
-            dataType: 'text',
-            //data: {
-            //    start: 0,
-            //    limit: 20,
-            //    query: ''
-            //},
+            method: "POST",
+            data: {
+                search: $("#search-bar").text(),
+                sort: $("dropdown-button").text(),
+                fruit: $("fruitRadio").is(":checked"),
+                vegetable: $("vegetableRadio").is(":checked"),
+                meat: $("meatRadio").is(":checked"),
+                snack: $("snackRadio").is(":checked"),
+                seafood: $("seafoodRadio").is(":checked"),
+                dessert: $("dessertRadio").is(":checked")
+            },
             success: function (response) {
                 console.log(response)
                 if (response == "reachedMax")
