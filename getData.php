@@ -46,6 +46,10 @@ if ($dessert == "true") {
     $where .= " Product_Type LIKE 'Dessert' OR ";
 }
 
+if ($where == " WHERE") {
+    $where = "";
+}
+
 $where = substr($where, 0, -3);
 
 echo $where;
