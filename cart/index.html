@@ -76,8 +76,7 @@
         });
     }
 
-    function removeFromCart(id){
-        this.parentNode.removeChild(this);
+    function removeFromCart(el, id){
         $.ajax({
             url: 'remove_from_cart.php',
             dataType: 'text',
@@ -98,6 +97,7 @@
                 console.log(err)
             }
         });
+        el.remove();
     }
 </script>
 </html>
