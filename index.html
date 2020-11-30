@@ -163,14 +163,14 @@
     }
 
     function addToCart(id, el){
-        //var quantity = el.childNodes[3].value;
+        var quantity = el.childNodes[3].value;
         $.ajax({
             url: 'add_to_cart.php',
             dataType: 'text',
             method: "POST",
             data: {
                 product_id: id,
-                product_quantity: 1
+                product_quantity: quantity
             },
             success: function (response) {
                 console.log(response)
