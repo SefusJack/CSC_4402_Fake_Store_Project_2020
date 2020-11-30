@@ -46,15 +46,38 @@ if ($dessert == "true") {
     $where .= " Product_Type LIKE 'Dessert' OR ";
 }
 
+$where = substr($where, 0, -3);
+
+$orderby = "";
+
+if ($sort == "Sort By A-Z") {
+    $orderby = " ORDER BY Product_Name";
+}
+elseif ($sort == "Sort By Most Frequently Bought") {
+    $orderby = "";
+    ///
+    //$orderby = " ORDER BY ";
+}
+elseif ($sort == "Sort By Stock") {
+    $orderby = " ORDER BY Stock DESC";
+}
+elseif ($sort == "Sort By Price Low to High") {
+    $orderby = " ORDER BY Price ASC";
+}
+elseif ($sort == "Sort By Price High to Low") {
+    $orderby = " ORDER BY Price DESC";
+}
+
 if ($where == " WHERE") {
     $where = "";
 }
 
-$where = substr($where, 0, -3);
-
 //echo $where;
 
-$sql = "SELECT * FROM Product NATURAL JOIN Vendor $where";
+$sql = "SELECT * FROM Product NATURAL JOIN Vendor $where $orderby";
+
+echo($sql);
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
