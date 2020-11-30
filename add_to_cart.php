@@ -4,6 +4,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
+echo "$_POST[product_quantity]";
 $sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
