@@ -81,6 +81,26 @@
 
     function removeFromCart(id){
         $.ajax({
+            url: 'create_an_order.php',
+            dataType: 'text',
+            method: "POST",
+            data: {
+                customer_id: id,
+            },
+            success: function (response) {
+                console.log(response)
+                if (response == "reachedMax")
+                    reachedMax = true;
+                else {
+                    start += limit;
+                    $("#results").append(response);
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+        $.ajax({
             url: 'remove_from_cart.php',
             dataType: 'text',
             method: "POST",
