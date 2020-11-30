@@ -98,26 +98,27 @@
             error: function(err) {
                 console.log(err)
             }
-        });
-        $.ajax({
-            url: 'remove_from_cart.php',
-            dataType: 'text',
-            method: "POST",
-            data: {
-                customer_id: id,
-            },
-            success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
+        }).then(function() {
+            $.ajax({
+                url: 'remove_from_cart.php',
+                dataType: 'text',
+                method: "POST",
+                data: {
+                    customer_id: id,
+                },
+                success: function (response) {
+                    console.log(response)
+                    if (response == "reachedMax")
+                        reachedMax = true;
+                    else {
+                        start += limit;
+                        $("#results").append(response);
+                    }
+                },
+                error: function(err) {
+                    console.log(err)
                 }
-            },
-            error: function(err) {
-                console.log(err)
-            }
+            });
         });
         $("#results").text("");
     }
