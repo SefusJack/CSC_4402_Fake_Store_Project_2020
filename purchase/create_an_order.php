@@ -33,8 +33,12 @@ else{
 
 $sql = "SELECT * FROM Cart NATURAL JOIN Product WHERE Customer_ID=1";
 $result = $con->query($sql);
+
+error_log("BEFORE IF", 0);
 if ($result->num_rows > 0) {
   // output data of each row
+  error_log("RESULT > 0", 0);
+
   while($row = $result->fetch_assoc()) {
       error_log("TEST", 0);
       $product_id = $row["Product_ID"];
