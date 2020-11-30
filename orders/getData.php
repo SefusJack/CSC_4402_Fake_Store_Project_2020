@@ -23,9 +23,7 @@ if ($result->num_rows > 0) {
         $address = $row["Address"];
         error_log("$order_id", 0);
         
-        echo("
-        <div style='border:1px solid #BBBBBB;border-radius: 4px; margin:5px;'>
-            <div style='display:grid;align-items: stretch;justify-items: stretch;grid-template-columns: repeat(5,1fr);'>");
+        echo("<div style='border:1px solid #BBBBBB;border-radius: 4px; margin:5px; display:grid;align-items: stretch;justify-items: stretch;grid-template-columns: repeat(5,1fr);'>");
 
         $sql = "SELECT * FROM Order_Products NATURAL JOIN Product WHERE Order_ID='$order_id'";
         $result2 = $conn->query($sql);
@@ -65,7 +63,6 @@ if ($result->num_rows > 0) {
             }
         }
         echo('
-        </div>
         <p>Total Cost: <b>' . $order_cost . '</b></p>
         <p>Sent to: <b>' . $address . '</b></p>
         <p>Bought at: <b>' . $date . '</b></p>
