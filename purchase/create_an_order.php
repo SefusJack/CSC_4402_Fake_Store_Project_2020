@@ -17,16 +17,15 @@ if ($result->num_rows > 0) {
       $product_id = $row["Product_ID"];
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id');";
   }
-}
+  $date = date('Y-m-d H:i:s');
 
-$date = date('Y-m-d H:i:s');
-
-$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
-if ($con->query($sql)){
-  echo "New record is inserted sucessfully";
-}
-else{
-  echo "Error: ". $sql ."
-". $con->error;
+  $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
+  if ($con->query($sql)){
+    echo "New record is inserted sucessfully";
+  }
+  else{
+    echo "Error: ". $sql ."
+  ". $con->error;
+  }
 }
 ?>
