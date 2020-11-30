@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
         $cost = $row["Cost"];
         $date = $row["Date"];
         $address = $row["Address"];
-        
+        error_log("$order_id", 0);
 
         $sql = "SELECT * FROM Order_Products NATURAL JOIN Product WHERE Order_ID='$order_id'";
         $result = $conn->query($sql);
