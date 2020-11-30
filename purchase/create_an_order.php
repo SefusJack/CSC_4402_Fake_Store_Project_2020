@@ -5,7 +5,7 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-$sql = "SELECT * FROM Customer_ID WHERE Customer_ID='$customer_id'";
+$sql = "SELECT * FROM Customer_ID WHERE Customer_ID='$_POST[customer_id]'";
 $result = $con->query($sql);
 $row = $result->fetch_assoc();
 $address = $row["Address"];
