@@ -58,7 +58,7 @@ if ($sort == "Sort By A-Z") {
     $orderby = " ORDER BY Product_Name";
 }
 elseif ($sort == "Sort By Most Frequently Bought") {
-    $sql = "SELECT * FROM Order_Products NATURAL JOIN Product GROUP BY Product_ID";
+    $sql = "SELECT *, COUNT(*) FROM Order_Products NATURAL JOIN Product GROUP BY COUNT";
     $orderby = " ORDER BY Quantity DESC";
 }
 elseif ($sort == "Sort By Stock") {
