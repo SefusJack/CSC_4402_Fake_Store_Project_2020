@@ -6,5 +6,10 @@ if ($con->connect_error) {
 echo "Connected successfully.";
 
 $result = $con->query($query);
-echo $result
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      echo "<tr><td>".$row["Vendor_ID"]."</td><td>".$row["Description"]." ".$row["Stock"]."</td></tr>";
+    }
 ?>
