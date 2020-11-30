@@ -75,5 +75,28 @@
             }
         });
     }
+
+    function addToCart(id, quantity){
+        $.ajax({
+            url: 'add_to_cart.php',
+            dataType: 'text',
+            data: {
+                product_id: id,
+                product_quantity: quantity
+            },
+            success: function (response) {
+                console.log(response)
+                if (response == "reachedMax")
+                    reachedMax = true;
+                else {
+                    start += limit;
+                    $("#results").append(response);
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+    }
 </script>
 </html>

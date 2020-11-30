@@ -5,7 +5,7 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-//$sql = "INSERT INTO Cart (Customer_ID, Product_ID, Quantity) VALUES ('$_POST[Name]', '$_POST[Address]', '$_POST[Email]', $_POST[Username]', '$_POST[Password]');";
+$sql = "INSERT INTO Cart (Customer_ID, Product_ID, Quantity) VALUES ('1' , '$_POST[product_id]', ''$POST[product_quantity]');";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
