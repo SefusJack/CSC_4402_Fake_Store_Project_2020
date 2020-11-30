@@ -27,10 +27,16 @@ if ($result->num_rows > 0) {
         $image_url = $row["Image_URL"];
         $cost = $row["Cost"];
         $stock = $row["Stock"];
+        $quantity = $row["Quantity"];
 
         echo '
         <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:400px; margin:20px">
-            <div style="position: absolute;width: 100px;height: 24px;right: 0px;top: 0px;background: #C4C4C4;">
+            <div style="position: absolute;width: 50px;height: 24px;left: 0px;top: 0px;background: #C4C4C4; border-bottom-right-radius: 15px;">
+                <p class="text-center font-medium" style="color: #FFFFFF">
+                    ' . $quantity . '
+                </p>
+            </div>
+            <div style="position: absolute;width: 100px;height: 24px;right: 0px;top: 0px;background: #C4C4C4; border-bottom-left-radius: 15px;">
                 <p class="text-center font-medium" style="color: #FFFFFF">
                     ' . $product_type . '
                 </p>
