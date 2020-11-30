@@ -32,9 +32,11 @@
                     <input type="text" id="Address" name="Address"><br>
                     <label for="Payment_Info">Payment_Info:</label>
                     <input type="text" id="Payment_Info" name="Payment_Info"><br>
-                    <input type="submit" value="Purchase" onclick="removeFromCart(1)" method="post">
                 </form>
             </div>
+            <button style="position: absolute;margin: 50px;left: 7.5%;width: 80%;height: 32px;background: #FFFFFF;border: 1px solid #9DC2FF;box-sizing: border-box;border-radius: 4px;" onclick="removeFromCart(1)" method="post">
+                <p class="text-center" style="height: 24px;left: 12px;right: 12px;top: calc(50% - 24px/2);font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;">Purchase</p>
+            </button>
         </div>
     </body>
 
@@ -90,7 +92,6 @@
     function removeFromCart(id){
         address = document.getElementById('Address');
         payment = document.getElementById('Payment_Info');
-        console.log(address);
         $.ajax({
             url: 'create_an_order.php',
             dataType: 'text',
