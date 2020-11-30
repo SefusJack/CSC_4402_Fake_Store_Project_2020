@@ -90,8 +90,9 @@
     }
 
     function removeFromCart(id){
-        address = document.getElementById('Address');
-        payment = document.getElementById('Payment_Info');
+        var address = document.getElementById('Address');
+        var payment = document.getElementById('Payment_Info');
+        console.log(address);
         $.ajax({
             url: 'create_an_order.php',
             dataType: 'text',
