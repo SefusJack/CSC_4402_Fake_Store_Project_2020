@@ -8,6 +8,7 @@ $sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=1 AND Product_ID
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
+    echo "$_POST[product_quantity]";
     $quantity = $row["Quantity"];
     $quantity = $_POST[product_quantity] + $quantity;
   }
