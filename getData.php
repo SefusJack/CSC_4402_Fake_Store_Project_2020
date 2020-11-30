@@ -11,7 +11,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Product";
+$sql = "SELECT * FROM Product NATURAL JOIN Vendor";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -19,6 +19,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $product_id = $row["Product_ID"];
         $vendor_id = $row["Vendor_ID"];
+        $vendor_name = $row["Vendor_Name"];
         $product_type = $row["Product_Type"];
         $product_name = $row["Product_Name"];
         $description = $row["Description"];
@@ -39,7 +40,7 @@ if ($result->num_rows > 0) {
                 ' . $product_name . '
             </div>
             <div style="position: absolute;left: 20px;right: 20px;top: 300px;font-family: Inter;font-style: normal;font-weight: 600;font-size: 16px;color: #19191D;">
-                Sold by ' . $vendor_id . '
+                Sold by ' . $vendor_name . '
             </div>
             <div style="position: absolute;height: 35px;left: 20px;right: 20px;top:320px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 24px;line-height: 150%;display: flex;align-items: center;color: rgba(0, 0, 0, 0.87);">
                 $' . $cost . '
