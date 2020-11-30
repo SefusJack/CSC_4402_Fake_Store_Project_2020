@@ -4,13 +4,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
-echo "$_POST[product_quantity]";
 $sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
     $quantity = $row["Quantity"];
-    //$quantity = "$_POST[product_quantity]" + $quantity;
+    $quantity = "$_POST[product_quantity]" + $quantity;
   }
   $sql = "UPDATE Cart SET Quantity=$quantity WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
   if ($con->query($sql)){
