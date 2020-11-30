@@ -5,7 +5,7 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()[0] <= 0) {
+if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()["COUNT(*)"] <= 0) {
   exit();
 }
 
