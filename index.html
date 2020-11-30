@@ -123,6 +123,15 @@
     }
     
     function getData() {
+        console.log($("#search-bar").text())
+        console.log($("dropdown-button").text())
+        console.log($("fruitRadio").is(":checked"))
+        console.log($("vegetableRadio").is(":checked"))
+        console.log($("meatRadio").is(":checked"))
+        console.log($("snackRadio").is(":checked"))
+        console.log($("seafoodRadio").is(":checked"))
+        console.log($("dessertRadio").is(":checked"))
+
         $("#results").text("");
         
         $.ajax({
