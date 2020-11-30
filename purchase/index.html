@@ -54,7 +54,7 @@
             url: 'getCost.php',
             dataType: 'text',
             success: function (response) {
-                $("#total-cost").text(response);
+                $("#total-cost").text("$" + response);
             },
             error: function(err) {
                 console.log(err)
