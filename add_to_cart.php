@@ -3,7 +3,6 @@ $con = new mysqli("localhost", "store", "qwerty12qwaszx", "store");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-/*
 echo "Connected successfully";
 $sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
 $result = $con->query($sql);
@@ -32,5 +31,4 @@ else{
   ". $con->error;
   }
 }
-*/
 ?>
