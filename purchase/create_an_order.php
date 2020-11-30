@@ -5,14 +5,12 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-//$sql = "SELECT * FROM `Order`;"
-//$result = $con->query($sql);
-//$order_id = $result->numrows+1;
+$sql = "SELECT * FROM `Order`;"
+$result = $con->query($sql);
+$order_id = $result->numrows+1;
 
-//$sql = "SELECT * FROM Cart WHERE Customer_ID=1;"
-//$result = $con->query($sql);
-echo "Connected2";
-/*
+$sql = "SELECT * FROM Cart WHERE Customer_ID=1;"
+$result = $con->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
