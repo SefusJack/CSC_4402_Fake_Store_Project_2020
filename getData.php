@@ -11,11 +11,43 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$search = $_POST['search'];
+$sort = $_POST['sort'];
+$fruit = $_POST['fruit'];
+$vegetable = $_POST['vegetable'];
+$meat = $_POST['meat'];
+$snack = $_POST['snack'];
+$seafood = $_POST['seafood'];
+$dessert = $_POST['dessert'];
 
+$where = " WHERE";
 
-$where = " WHERE ";
+if ($search != "") {
+    $where .= " (Product_Name LIKE '%$search%' OR Vendor_Name LIKE '%$search%') AND";
+}
 
+if ($fruit) {
+    $where .= " Product_Type LIKE 'Fruit' OR ";
+}
+if ($vegetable) {
+    $where .= " Product_Type LIKE 'Vegetable' OR ";
+}
+if ($meat) {
+    $where .= " Product_Type LIKE 'Meat' OR ";
+}
+if ($snack) {
+    $where .= " Product_Type LIKE 'Snack' OR ";
+}
+if ($seafood) {
+    $where .= " Product_Type LIKE 'Seafood' OR ";
+}
+if ($dessert) {
+    $where .= " Product_Type LIKE 'Dessert' OR ";
+}
 
+$where = substr($where, 0, -3);
+
+echo $where;
 
 $sql = "SELECT * FROM Product NATURAL JOIN Vendor";
 $result = $conn->query($sql);

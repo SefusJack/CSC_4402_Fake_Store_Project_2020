@@ -59,7 +59,7 @@
                     </div>
                     <div style="justify-content: stretch; display: flex;">
                         <input id="search-bar" class="form-control my-0 py-1 lime-border" type="text"  aria-label="Search" style="border-bottom-right-radius: 0; border-top-right-radius: 0;">
-                        <button class="btn btn-secondary" style="border-bottom-left-radius: 0; border-top-left-radius: 0;">
+                        <button onclick="OnSubmit()" class="btn btn-secondary" style="border-bottom-left-radius: 0; border-top-left-radius: 0;">
                             Search
                         </button>
                     </div>
@@ -123,8 +123,8 @@
     }
     
     function getData() {
-        if (reachedMax)
-            return;
+        $("#results").text("");
+        
         $.ajax({
             url: 'getData.php',
             method: "POST",
