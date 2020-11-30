@@ -1,5 +1,6 @@
 <html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <body style="margin-bottom: 29px; background-color: lightgrey; padding: 0; margin:0">
         <nav style="padding: 6; background-color: white; display: flex; justify-content: space-between; margin:0; margin-bottom: 6;">
             <div style="font-size: x-large; margin:auto;margin-left:5">
@@ -18,11 +19,85 @@
             </ul>
         </nav>
         <div style="justify-content: center; display: flex;">
-            <div style="background-color: white; width:80%">
-                <form style="margin:20; display: grid; grid-template-columns: repeat(1,2);" action="getData.php" method="post">
-                    <input type="submit" value="Register">
-                </form>
+            <div  style="left:20px;right:20px;  background-color: white; width:80%">
+                <div id="results" style="display:grid;align-items: stretch;justify-items: stretch;grid-template-columns: repeat(5,1fr);">
+                    
+                </div>
             </div>
         </div>
     </body>
+
+<script type="text/javascript">
+    var start = 0;
+    var limit = 20;
+    var query = '';
+    var reachedMax = false;
+    var searched = false;
+    $(document).ready(function () {
+        onSubmit();
+    });
+    //$(window).scroll(function () {
+    //    if ($(window).scrollTop() + $(window).innerHeight() > $(document).height() - 1) {
+    //        getData();
+    //    }
+    //});
+    function onSubmit() {
+        searched = true;
+        start = 0;
+        reachedMax = false;
+        query = "";
+        //$("#results").html("");
+        getData();
+    }
+    
+    function getData() {
+        if (reachedMax)
+            return;
+        $.ajax({
+            url: 'getData.php',
+            dataType: 'text',
+            //data: {
+            //    start: 0,
+            //    limit: 20,
+            //    query: ''
+            //},
+            success: function (response) {
+                console.log(response)
+                if (response == "reachedMax")
+                    reachedMax = true;
+                else {
+                    start += limit;
+                    $("#results").append(response);
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+    }
+
+    function addToCart(id, quantity){
+        $.ajax({
+            url: 'add_to_cart.php',
+            dataType: 'text',
+            method: "POST",
+            data: {
+                product_id: id,
+                product_quantity: quantity
+            },
+            success: function (response) {
+                console.log(response)
+                if (response == "reachedMax")
+                    reachedMax = true;
+                else {
+                    start += limit;
+                    $("#results").append(response);
+                }
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+    }
+</script>
 </html>
