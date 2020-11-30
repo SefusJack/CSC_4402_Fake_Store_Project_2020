@@ -6,5 +6,5 @@ if ($con->connect_error) {
 echo "Connected successfully.";
 
 $result = $con->query($query);
-
+echo $result
 ?>
