@@ -1,21 +1,10 @@
 <?php
-	$conn = new mysqli('localhost', 'store', 'qwerty12qwaszx', "store");
+$con = new mysqli("localhost", "store", "qwerty12qwaszx", "store");
+if ($con->connect_error) {
+  die("Connection failed: " . $con->connect_error);
+}
+echo "Connected successfully.";
 
-    $query = "SELECT * FROM Product";
-    
-    $result = $conn->query($query);
+$result = $con->query($query);
 
-    $response = "";
-
-    # Return max if no results found
-    if ($result->num_rows > 0) {
-        $response = "IF";
-        while($row = $result->fetch_assoc()) {
-            $respone = "TEST";
-        }
-        return $response;
-    }
-    else {
-        return "FALSE";
-    }
 ?>
