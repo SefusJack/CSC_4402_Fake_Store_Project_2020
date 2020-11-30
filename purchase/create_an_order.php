@@ -7,8 +7,10 @@ echo "Connected";
 
 $sql = "SELECT * FROM `Order`;";
 $result = $con->query($sql);
+
 $order_id = $result->numrows+1;
 
+$date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
@@ -33,6 +35,5 @@ if ($result->num_rows > 0) {
       ". $con->error;
       }
   }
-  $date = date('Y-m-d H:i:s');
 }
 ?>
