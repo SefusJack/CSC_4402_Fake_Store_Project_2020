@@ -88,8 +88,8 @@
     }
 
     function removeFromCart(id){
-        //var address = document.getElementById('Address');
-        //var payment = document.getElementById('Payment_Info');
+        address = document.getElementById('Address');
+        payment = document.getElementById('Payment_Info');
         $.ajax({
             url: 'create_an_order.php',
             dataType: 'text',
