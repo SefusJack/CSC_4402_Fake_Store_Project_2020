@@ -4,7 +4,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
-
+/*
 $sql = "SELECT * FROM `Order`;"
 $result = $con->query($sql);
 $order_id = $result->numrows+1;
@@ -30,4 +30,5 @@ else{
   echo "Error: ". $sql ."
 ". $con->error;
 }
+*/
 ?>
