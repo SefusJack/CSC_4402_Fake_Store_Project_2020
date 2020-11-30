@@ -1,16 +1,15 @@
 <html>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <body style="margin-bottom: 29px; background-color: lightgrey; padding: 0; margin:0">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><body style="margin-bottom: 29px; background-color: lightgrey; padding: 0; margin:0">
         <nav style="padding: 6; background-color: white; display: flex; justify-content: space-between; margin:0; margin-bottom: 6;">
             <div style="font-size: x-large; margin:auto;margin-left:5">
                 SHOP-4402
             </div>
 
             <ul style="display:flex; align-items: center;margin-bottom: 0;">
-                <button style="margin:3">
-                    <a href="http://54.90.48.198/login">Login</a>
-                </button>
+                <p>Welcome, Seth</p>
                 
                 <button style="margin:3;">
                     <a href="http://54.90.48.198/sell_item">Sell Item</a>
@@ -19,13 +18,96 @@
             </ul>
         </nav>
         <div style="justify-content: center; display: flex;">
-            <div  style="left:20px;right:20px;  background-color: white; width:80%">
+            
+            <div  style="left:20px;right:20px;  background-color: white; width:80%; padding:10px">
+                <div class="row justify-content-between" style="margin-right: 0; margin-left: 0;">
+                    <div style="color: cornsilk;">
+                        <div class="form-check form-check-inline active-form-check-inline justify-content-center" style=" border-radius: 25px; height:38px; width:100px">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1" style="display: none;">
+                            <label class="form-check-label" for="inlineRadio1">Fruit</label>
+                          </div>
+                          <div class="form-check form-check-inline active-form-check-inline justify-content-center" style=" border-radius: 25px; height:38px; width:100px">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2" style="display: none;">
+                            <label class="form-check-label" for="inlineRadio2">Vegetable</label>
+                          </div>
+                          <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option3" style="display: none;">
+                            <label class="form-check-label" for="inlineRadio3">Another</label>
+                          </div>
+                          <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option4" style="display: none;">
+                            <label class="form-check-label" for="inlineRadio4">Another</label>
+                          </div>
+                          <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option5" style="display: none;">
+                            <label class="form-check-label" for="inlineRadio5">Another</label>
+                          </div>
+                          <div class="form-check form-check-inline active-form-check-inline justify-content-center" style="border-radius: 25px; height:38px; width:100px">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option6" style="display: none;">
+                            <label class="form-check-label" for="inlineRadio6">Another</label>
+                          </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" style="width: 240" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort By A-Z
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Sort By A-Z</a>
+                            <a class="dropdown-item" href="#">Sort By Most Frequently Bought</a>
+                            <a class="dropdown-item" href="#">Sort By Stock</a>
+                            <a class="dropdown-item" href="#">Sort By Price Low to High</a>
+                            <a class="dropdown-item" href="#">Sort By Price High to Low</a>
+                        </div>
+                    </div>
+                    <div style="justify-content: stretch; display: flex;">
+                        <input class="form-control my-0 py-1 lime-border" type="text"  aria-label="Search" style="border-bottom-right-radius: 0; border-top-right-radius: 0;">
+                        <button class="btn btn-secondary" style="border-bottom-left-radius: 0; border-top-left-radius: 0;">
+                            Search
+                        </button>
+                    </div>
+                </div>
                 <div id="results" style="display:grid;align-items: stretch;justify-items: stretch;grid-template-columns: repeat(5,1fr);">
                     
                 </div>
             </div>
         </div>
     </body>
+
+<style>
+    .active-form-check-inline {
+        background-color: cornflowerblue;
+        color: white;
+        border-color: cornflowerblue;
+        border-width: 5px;
+    }
+    .inactive-form-check-inline {
+        background-color: white;
+        color: darkgray;
+        border-color: cornflowerblue;
+        border-width: 0 1 px;
+        border: solid cornflowerblue;
+
+    }
+</style>
+
+<script>
+    $(".form-check-inline").click(function(){
+        if ($(this).find("input").is(":checked")) {
+            $(this).addClass("active-form-check-inline")
+            $(this).removeClass("inactive-form-check-inline")
+        }
+        else {
+            $(this).addClass("inactive-form-check-inline")
+            $(this).removeClass("active-form-check-inline")
+        }
+    })
+
+    $(".dropdown-item").click(function() {
+        $(this).parent().parent().find("button").text($(this).text())
+    })
+    //$(".form-check-inline").has("input.active").addClass("active-form-check-inline")
+    //$(".form-check-inline").has( "input.inactive)").addClass("inactive-form-check-inline")
+</script>
 
 <script type="text/javascript">
     var start = 0;
