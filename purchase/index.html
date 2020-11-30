@@ -77,7 +77,6 @@
     }
 
     function removeFromCart(id){
-        var elem = document.getElementById('order');
         $.ajax({
             url: 'remove_from_cart.php',
             dataType: 'text',
@@ -98,7 +97,7 @@
                 console.log(err)
             }
         });
-        elem.remove();
+        $("#results").text();
     }
 </script>
 </html>
