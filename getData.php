@@ -67,10 +67,10 @@ elseif ($sort == "Sort By Stock") {
     $orderby = " ORDER BY Stock DESC";
 }
 elseif ($sort == "Sort By Price Low to High") {
-    $orderby = " ORDER BY Price ASC";
+    $orderby = " ORDER BY Cost ASC";
 }
 elseif ($sort == "Sort By Price High to Low") {
-    $orderby = " ORDER BY Price DESC";
+    $orderby = " ORDER BY Cost DESC";
 }
 
 
