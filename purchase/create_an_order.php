@@ -12,9 +12,11 @@ $order_id = $result->numrows+1;
 $sql = "SELECT * FROM Cart WHERE Customer_ID=1;";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
+  echo $order_id;
   // output data of each row
   while($row = $result->fetch_assoc()) {
       $product_id = $row["Product_ID"];
+      echo $product_id;
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id');";
   }
   $date = date('Y-m-d H:i:s');
