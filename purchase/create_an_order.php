@@ -5,29 +5,29 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-$sql = "SELECT * FROM `Order`;"
+$sql = "SELECT * FROM `Order`;";
 $result = $con->query($sql);
 $order_id = $result->numrows+1;
 
-$sql = "SELECT * FROM Cart WHERE Customer_ID=1;"
+$sql = "SELECT * FROM Cart WHERE Customer_ID=1;";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
+  echo $order_id;
   // output data of each row
   while($row = $result->fetch_assoc()) {
       $product_id = $row["Product_ID"];
+      echo $product_id;
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id');";
   }
-}
+  $date = date('Y-m-d H:i:s');
 
-$date = date('Y-m-d H:i:s');
-
-$sql = "INSERT INTO Order (Product_ID, Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('NULL', '100', '$date', $_POST[Address]', '1');";
-if ($con->query($sql)){
-  echo "New record is inserted sucessfully";
+  $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
+  if ($con->query($sql)){
+    echo "New record is inserted sucessfully";
+  }
+  else{
+    echo "Error: ". $sql ."
+  ". $con->error;
+  }
 }
-else{
-  echo "Error: ". $sql ."
-". $con->error;
-}
-*/
 ?>
