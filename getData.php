@@ -58,8 +58,9 @@ if ($sort == "Sort By A-Z") {
     $orderby = " ORDER BY Product_Name";
 }
 elseif ($sort == "Sort By Most Frequently Bought") {
-    $sql = "SELECT *, COUNT(*) FROM Order_Products NATURAL JOIN Product GROUP BY COUNT";
-    $orderby = " ORDER BY COUNT DESC";
+    //$sql = "SELECT *, COUNT(*) FROM Order_Products NATURAL JOIN Product";
+    $sql = "SELECT Product_ID, COUNT(*) FROM Order_Products NATURAL JOIN Product";
+    $orderby = " GROUP BY Product_ID ORDER BY COUNT(*) DESC";
 }
 elseif ($sort == "Sort By Stock") {
     $orderby = " ORDER BY Stock DESC";
@@ -70,9 +71,6 @@ elseif ($sort == "Sort By Price Low to High") {
 elseif ($sort == "Sort By Price High to Low") {
     $orderby = " ORDER BY Cost DESC";
 }
-
-
-//echo $where;
 
 
 echo("$sql $where $orderby");
