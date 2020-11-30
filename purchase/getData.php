@@ -16,7 +16,6 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-    echo '<div id="order">'
     while($row = $result->fetch_assoc()) {
         $cart_id = $row["Cart_ID"];
         $product_id = $row["Product_ID"];
@@ -52,7 +51,6 @@ if ($result->num_rows > 0) {
             </button>
         </div>';
     }
-    echo '</div>'
 } else {
   echo "0 results";
 }
