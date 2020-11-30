@@ -162,14 +162,15 @@
         });
     }
 
-    function addToCart(id, quantity){
+    function addToCart(id, el){
+        var elem = el.parentElement.childNodes[1];
         $.ajax({
             url: 'add_to_cart.php',
             dataType: 'text',
             method: "POST",
             data: {
                 product_id: id,
-                product_quantity: quantity
+                product_quantity: elem.value
             },
             success: function (response) {
                 console.log(response)
