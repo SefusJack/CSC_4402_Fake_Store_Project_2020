@@ -9,7 +9,7 @@ $sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=1 AND Product_ID
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
-    $quantity = $row["Quantity"];
+    $quantity = 1;
     $quantity = "$_POST[product_quantity]" + $quantity;
   }
   $sql = "UPDATE Cart SET Quantity=$quantity WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
