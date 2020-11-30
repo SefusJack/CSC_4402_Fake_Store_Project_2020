@@ -12,7 +12,7 @@ $address = $row["Address"];
 $payment = $row["Payment"];
 
 $date = date('Y-m-d H:i:s');
-$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('0', '$date', '', '1', '1');";
+$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]');";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
