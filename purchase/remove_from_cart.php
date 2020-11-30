@@ -1,7 +1,7 @@
 <?php
 $con = new mysqli("localhost", "store", "qwerty12qwaszx", "store");
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+  die("Connection failed: " . $con->connect_error);
 }
 //echo "Connected successfully";
 $sql = "DELETE FROM Cart WHERE Customer_ID=$_POST[customer_id];";
