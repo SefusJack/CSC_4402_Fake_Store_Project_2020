@@ -5,14 +5,9 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-$sql = "SELECT * FROM `Order`;";
-$result = $con->query($sql);
-
-$order_id = $con->insert_id;
-echo $order_id;
-
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
+$order_id = $con->insert_id;
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
