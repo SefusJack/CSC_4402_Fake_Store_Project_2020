@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
         
         echo '<div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:400px; margin:20px">'
 
-        $sql = "SELECT * FROM Order_Products NATURAL JOIN Products WHERE Order_ID='$order_id'";
+        $sql = "SELECT * FROM Order_Products NATURAL JOIN Product WHERE Order_ID='$order_id'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){
