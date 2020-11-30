@@ -5,12 +5,6 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-$sql = "SELECT * FROM Customer_ID WHERE Customer_ID='$_POST[customer_id]'";
-$result = $con->query($sql);
-$row = $result->fetch_assoc();
-$address = $row["Address"];
-$payment = $row["Payment"];
-
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]');";
 if ($con->query($sql)){
