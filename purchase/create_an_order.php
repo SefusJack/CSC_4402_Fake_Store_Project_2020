@@ -26,13 +26,14 @@ else{
 }
 
 
-$sql = "SELECT * FROM Cart WHERE Customer_ID=1";
+$sql = "SELECT * FROM Cart NATURAL JOIN Product WHERE Customer_ID=1";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
       $product_id = $row["Product_ID"];
       $quantity = $row["Quantity"];
+      $stock = $row["Stock"];
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID, Quantity) VALUES ('$order_id', '$product_id', '$quantity');";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
@@ -43,4 +44,8 @@ if ($result->num_rows > 0) {
       }
   }
 }
+$newstock = $stock - $quantity;
+$sql = "UPDATE Product SET Stock=$newstock WHERE Product_ID=$product_id";
+$result = $con->query($sql);
+
 ?>
