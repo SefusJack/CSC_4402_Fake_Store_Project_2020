@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 $search = $_POST['search'];
-$sort = $_POST['sort'];
+$sort = trim($_POST['sort']);
 $fruit = $_POST['fruit'];
 $vegetable = $_POST['vegetable'];
 $meat = $_POST['meat'];
@@ -48,6 +48,11 @@ if ($dessert == "true") {
 
 $where = substr($where, 0, -3);
 
+if ($where == " WHERE") {
+    $where = "";
+}
+
+
 $orderby = "";
 
 if ($sort == "Sort By A-Z") {
@@ -68,9 +73,6 @@ elseif ($sort == "Sort By Price High to Low") {
     $orderby = " ORDER BY Price DESC";
 }
 
-if ($where == " WHERE") {
-    $where = "";
-}
 
 //echo $where;
 
