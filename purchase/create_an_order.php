@@ -31,7 +31,7 @@ else{
 }
 
 
-$sql = "SELECT * FROM Cart NATURAL JOIN Product WHERE Customer_ID=1";
+$sql = "SELECT * FROM Cart WHERE Customer_ID=1";
 $result = $con->query($sql);
 
 error_log("BEFORE IF", 0);
@@ -47,12 +47,12 @@ if ($result->num_rows > 0) {
       error_log($quantity, 0);
       
       
-      $stock = $row["Stock"];
-      $newstock = $stock - $quantity;
-      error_log($stock, 0);
-      error_log($newstock, 0);
+      //$stock = $row["Stock"];
+      //$newstock = $stock - $quantity;
+      //error_log($stock, 0);
+      //error_log($newstock, 0);
 
-      $sql = "UPDATE Product SET Stock='$newstock' WHERE Product_ID=$product_id AND Customer_ID=1";
+      $sql = "UPDATE Product SET Stock=Stock-$quantity WHERE Product_ID=$product_id AND Customer_ID=1";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
       }
