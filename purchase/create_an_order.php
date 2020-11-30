@@ -43,4 +43,14 @@ if ($result->num_rows > 0) {
       }
   }
 }
+
+$sql = "DELETE FROM Cart WHERE Customer_ID=$_POST[customer_id];";
+if ($con->query($sql)){
+  //echo " New record is Deleted sucessfully";
+}
+else{
+  echo "Error: ". $sql ."
+". $con->error;
+}
+
 ?>

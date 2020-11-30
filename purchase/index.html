@@ -87,34 +87,24 @@
                 customer_payment: payment
             },
             success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
-                }
-
                 $.ajax({
-                url: 'remove_from_cart.php',
-                dataType: 'text',
-                method: "POST",
-                data: {
-                    customer_id: id,
-                },
-                success: function (response) {
-                    console.log(response)
-                    if (response == "reachedMax")
-                        reachedMax = true;
-                    else {
-                        start += limit;
+                    url: 'remove_from_cart.php',
+                    dataType: 'text',
+                    method: "POST",
+                    data: {
+                        customer_id: id,
+                    },
+                    success: function (response) {
                         $("#results").append(response);
+                    },
+                    error: function(err) {
+                        console.log(err)
                     }
-                },
-                error: function(err) {
-                    console.log(err)
-                }
-            });
+                });
+                
+                $("#results").append(response);
+                
+                
             },
             error: function(err) {
                 console.log(err)
