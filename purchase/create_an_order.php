@@ -15,7 +15,7 @@ else{
 ". $con->error;
 }
 $order_id = $con->insert_id;
-
+error_log("$order_id", 0);
 $sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = '$order_id';";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
