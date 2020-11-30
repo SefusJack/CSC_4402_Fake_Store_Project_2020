@@ -7,7 +7,6 @@ echo "Connected";
 
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
-$order_id = $con->insert_id;
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
@@ -15,6 +14,7 @@ else{
   echo "Error: ". $sql ."
 ". $con->error;
 }
+$order_id = $con->insert_id;
 
 $sql = "SELECT * FROM Cart WHERE Customer_ID=1;";
 $result = $con->query($sql);
