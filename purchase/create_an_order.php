@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
       $product_id = $row["Product_ID"];
       $quantity = $row["Quantity"];
       error_log("$quantity", 0)
-      $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id' , '$quantity');";
+      $sql = "INSERT INTO Order_Products (Order_ID, Product_ID, Quantity) VALUES ('$order_id', '$product_id' , '$quantity');";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
       }
