@@ -20,15 +20,6 @@ $snack = $_POST['snack'];
 $seafood = $_POST['seafood'];
 $dessert = $_POST['dessert'];
 
-echo($search);
-echo($sort);
-echo($fruit);
-echo($vegetable);
-echo($meat);
-echo($snack);
-echo($seafood);
-echo($dessert);
-
 
 $where = " WHERE";
 
@@ -36,22 +27,22 @@ if ($search != "") {
     $where .= " (Product_Name LIKE '%$search%' OR Vendor_Name LIKE '%$search%') AND";
 }
 
-if ($fruit) {
+if ($fruit == "true") {
     $where .= " Product_Type LIKE 'Fruit' OR ";
 }
-if ($vegetable) {
+if ($vegetable == "true") {
     $where .= " Product_Type LIKE 'Vegetable' OR ";
 }
-if ($meat) {
+if ($meat == "true") {
     $where .= " Product_Type LIKE 'Meat' OR ";
 }
-if ($snack) {
+if ($snack == "true") {
     $where .= " Product_Type LIKE 'Snack' OR ";
 }
-if ($seafood) {
+if ($seafood == "true") {
     $where .= " Product_Type LIKE 'Seafood' OR ";
 }
-if ($dessert) {
+if ($dessert == "true") {
     $where .= " Product_Type LIKE 'Dessert' OR ";
 }
 
