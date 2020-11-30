@@ -28,6 +28,7 @@
         <div style="justify-content: center; display: flex;">
             <div style="background-color: white; width:80%">
                 <form style="margin:20; display: grid; grid-template-columns: repeat(1,2); " onsubmit="return removeFromCart(1)" method="post">
+                    <p>Cost: <b id="total-cost"></b></p>
                     <label for="Address">Address:</label>
                     <input type="text" id="Address" name="Address" required="required"><br>
                     <label for="Payment_Info">Payment_Info:</label>
@@ -39,47 +40,32 @@
     </body>
 
 <script type="text/javascript">
-    var start = 0;
-    var limit = 20;
-    var query = '';
-    var reachedMax = false;
-    var searched = false;
+
     $(document).ready(function () {
         onSubmit();
     });
-    //$(window).scroll(function () {
-    //    if ($(window).scrollTop() + $(window).innerHeight() > $(document).height() - 1) {
-    //        getData();
-    //    }
-    //});
+    
     function onSubmit() {
-        searched = true;
-        start = 0;
-        reachedMax = false;
-        query = "";
-        //$("#results").html("");
         getData();
     }
     
     function getData() {
-        if (reachedMax)
-            return;
+        $.ajax({
+            url: 'getCost.php',
+            dataType: 'text',
+            success: function (response) {
+                $("#total-cost").text(response);
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+        
         $.ajax({
             url: 'getData.php',
             dataType: 'text',
-            //data: {
-            //    start: 0,
-            //    limit: 20,
-            //    query: ''
-            //},
             success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
-                }
+                $("#results").append(response);
             },
             error: function(err) {
                 console.log(err)
