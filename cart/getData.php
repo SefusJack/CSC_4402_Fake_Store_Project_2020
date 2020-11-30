@@ -5,6 +5,8 @@ if ($con->connect_error) {
 }
 echo "Connected successfully.";
 
+$query = "SELECT * FROM Product";
+
 $result = $con->query($query);
 if ($result->num_rows > 0) {
     echo "<table><tr><th>ID</th><th>Name</th></tr>";
