@@ -10,8 +10,8 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
     $quantity = $row["Quantity"];
     $quantity = "$_POST[product_quantity]" + $quantity;
-    error_log("$quantity", 0);
   }
+  error_log("$_POST[product_id]", 0);
   $sql = "UPDATE Cart SET Quantity=$quantity WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
   if ($con->query($sql)){
     echo "New record is inserted sucessfully";
