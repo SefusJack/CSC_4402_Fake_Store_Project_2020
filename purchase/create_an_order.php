@@ -7,6 +7,9 @@ echo "Connected";
 
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) SELECT '0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]' WHERE (SELECT COUNT(*) FROM Cart WHERE Customer_ID=1) > 0;";
+
+error_log($sql, 0);
+
 if ($response = $con->query($sql)){
   echo "New record is inserted sucessfully";
 }
@@ -16,6 +19,7 @@ else{
 }
 $order_id = $con->insert_id;
 
+error_log($response, 0);
 error_log($order_id, 0);
 
 $sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = '$order_id';";
