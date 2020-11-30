@@ -123,14 +123,14 @@
     }
     
     function getData() {
-        console.log($("#search-bar").text())
-        console.log($("dropdown-button").text())
-        console.log($("fruitRadio").is(":checked"))
-        console.log($("vegetableRadio").is(":checked"))
-        console.log($("meatRadio").is(":checked"))
-        console.log($("snackRadio").is(":checked"))
-        console.log($("seafoodRadio").is(":checked"))
-        console.log($("dessertRadio").is(":checked"))
+        console.log($("#search-bar").val())
+        console.log($("#dropdown-button").text())
+        console.log($("#fruitRadio").is(":checked"))
+        console.log($("#vegetableRadio").is(":checked"))
+        console.log($("#meatRadio").is(":checked"))
+        console.log($("#snackRadio").is(":checked"))
+        console.log($("#seafoodRadio").is(":checked"))
+        console.log($("#dessertRadio").is(":checked"))
 
         $("#results").text("");
         
@@ -138,14 +138,14 @@
             url: 'getData.php',
             method: "POST",
             data: {
-                search: $("#search-bar").text(),
-                sort: $("dropdown-button").text(),
-                fruit: $("fruitRadio").is(":checked"),
-                vegetable: $("vegetableRadio").is(":checked"),
-                meat: $("meatRadio").is(":checked"),
-                snack: $("snackRadio").is(":checked"),
-                seafood: $("seafoodRadio").is(":checked"),
-                dessert: $("dessertRadio").is(":checked")
+                search: $("#search-bar").val(),
+                sort: $("#dropdown-button").text(),
+                fruit: $("#fruitRadio").is(":checked"),
+                vegetable: $("#vegetableRadio").is(":checked"),
+                meat: $("#meatRadio").is(":checked"),
+                snack: $("#snackRadio").is(":checked"),
+                seafood: $("#seafoodRadio").is(":checked"),
+                dessert: $("#dessertRadio").is(":checked")
             },
             success: function (response) {
                 console.log(response)
