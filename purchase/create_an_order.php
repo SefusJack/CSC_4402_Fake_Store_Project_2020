@@ -16,6 +16,16 @@ else{
 }
 $order_id = $con->insert_id;
 
+$sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = '$order_id';";
+if ($con->query($sql)){
+  echo "New record is inserted sucessfully";
+}
+else{
+  echo "Error: ". $sql ."
+". $con->error;
+}
+
+
 $sql = "SELECT * FROM Cart WHERE Customer_ID=1";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
@@ -30,14 +40,6 @@ if ($result->num_rows > 0) {
         echo "Error: ". $sql ."
       ". $con->error;
       }
-  }
-  $sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = '$order_id';";
-  if ($con->query($sql)){
-    echo "New record is inserted sucessfully";
-  }
-  else{
-    echo "Error: ". $sql ."
-  ". $con->error;
   }
 }
 ?>
