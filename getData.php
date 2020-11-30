@@ -11,6 +11,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+
+
+$where = " WHERE ";
+
+
+
 $sql = "SELECT * FROM Product NATURAL JOIN Vendor";
 $result = $conn->query($sql);
 
