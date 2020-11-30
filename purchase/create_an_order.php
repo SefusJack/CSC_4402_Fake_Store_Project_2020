@@ -34,6 +34,17 @@ if ($result->num_rows > 0) {
       $product_id = $row["Product_ID"];
       $quantity = $row["Quantity"];
       $stock = $row["Stock"];
+
+      $newstock = $stock - $quantity;
+      $sql = "UPDATE Product SET Stock='$newstock' WHERE Product_ID='$product_id'";
+      if ($con->query($sql)){
+        echo "New record is inserted sucessfully";
+      }
+      else{
+        echo "Error: ". $sql ."
+      ". $con->error;
+      }
+
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID, Quantity) VALUES ('$order_id', '$product_id', '$quantity');";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
@@ -42,9 +53,6 @@ if ($result->num_rows > 0) {
         echo "Error: ". $sql ."
       ". $con->error;
       }
-      $newstock = $stock - $quantity;
-      $sql = "UPDATE Product SET Stock=$newstock WHERE Product_ID=$product_id";
-      $result2 = $con->query($sql);
   }
 }
 
