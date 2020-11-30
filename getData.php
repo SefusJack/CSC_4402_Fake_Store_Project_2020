@@ -87,7 +87,7 @@ if ($result->num_rows > 0) {
         $product_name = $row["Product_Name"];
         $description = $row["Description"];
         $image_url = $row["Image_URL"];
-        $cost = number_format($row["Cost"], 2, '.', '');
+        $cost = $row["Cost"];
         $stock = $row["Stock"];
 
         echo '

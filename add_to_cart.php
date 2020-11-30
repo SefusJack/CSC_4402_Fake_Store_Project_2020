@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
   }
 }
 else{
-  $sql = "INSERT INTO Cart (Customer_ID, Product_ID, Quantity) VALUES (1 , $_POST[product_id], $_POST[product_quantity]);";
+  $sql = "INSERT INTO Cart (Customer_ID, Product_ID, Quantity) VALUES ('1' , '$_POST[product_id]', '$_POST[product_quantity]');";
   if ($con->query($sql)){
     echo "New record is inserted sucessfully";
   }
