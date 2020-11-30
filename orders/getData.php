@@ -24,9 +24,9 @@ if ($result->num_rows > 0) {
         error_log("$order_id", 0);
 
         $sql = "SELECT * FROM Order_Products NATURAL JOIN Product WHERE Order_ID='$order_id'";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()){
+        $result2 = $conn->query($sql);
+        if ($result2->num_rows > 0) {
+            while($row = $result2->fetch_assoc()){
                 $vendor_name = $row["Vendor_Name"];
                 $product_type = $row["Product_Type"];
                 $product_name = $row["Product_Name"];
