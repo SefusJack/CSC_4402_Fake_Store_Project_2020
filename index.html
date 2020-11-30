@@ -129,14 +129,14 @@
             url: 'getData.php',
             method: "POST",
             data: {
-                search = $("#search-bar").text(),
-                sort = $("dropdown-button").text(),
-                fruit = $("fruitRadio").is(":checked"),
-                vegetable = $("vegetableRadio").is(":checked"),
-                meat = $("meatRadio").is(":checked"),
-                snack = $("snackRadio").is(":checked"),
-                seafood = $("seafoodRadio").is(":checked"),
-                dessert = $("dessertRadio").is(":checked")
+                search: $("#search-bar").text(),
+                sort: $("dropdown-button").text(),
+                fruit: $("fruitRadio").is(":checked"),
+                vegetable: $("vegetableRadio").is(":checked"),
+                meat: $("meatRadio").is(":checked"),
+                snack: $("snackRadio").is(":checked"),
+                seafood: $("seafoodRadio").is(":checked"),
+                dessert: $("dessertRadio").is(":checked")
             },
             success: function (response) {
                 console.log(response)
