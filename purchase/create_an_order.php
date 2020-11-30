@@ -22,7 +22,7 @@ else{
 $order_id = $con->insert_id;
 
 
-$sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = '$order_id';";
+$sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = $order_id;";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
