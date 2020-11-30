@@ -94,12 +94,8 @@
                     start += limit;
                     $("#results").append(response);
                 }
-            },
-            error: function(err) {
-                console.log(err)
-            }
-        }).then(function() {
-            $.ajax({
+
+                $.ajax({
                 url: 'remove_from_cart.php',
                 dataType: 'text',
                 method: "POST",
@@ -119,7 +115,11 @@
                     console.log(err)
                 }
             });
-        });
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
         $("#results").text("");
     }
 </script>
