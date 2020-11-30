@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         $order_id = $row["Order_ID"];
-        $cost = $row["Cost"];
+        $order_cost = $row["Cost"];
         $date = $row["Date"];
         $address = $row["Address"];
         error_log("$order_id", 0);
@@ -62,7 +62,11 @@ if ($result->num_rows > 0) {
                 </div>';
             }
         }
-        echo("</div>");
+        echo('
+        <p>Total Cost: <b>' . $order_cost . '</b></p>
+        <p>Sent to: <b>' . $address . '</b></p>
+        <p>Bought at: <b>' . $date . '</b></p>
+        </div>');
     }
 } else {
   echo "0 results";
