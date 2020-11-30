@@ -39,19 +39,18 @@ if ($result->num_rows > 0) {
       $product_id = $row["Product_ID"];
       $quantity = $row["Quantity"];
       
-      /*
+      
       $stock = $row["Stock"];
       $newstock = $stock - $quantity;
-      error_log
-      $sql = "UPDATE Product SET Stock='$newstock' WHERE Product_ID='$product_id'";
+      $sql = "UPDATE Product SET Stock='$newstock' WHERE Product_ID=$product_id AND Customer_ID=1";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
       }
       else{
         echo "Error: ". $sql . $con->error;
       }
-      */
-      $sql = "INSERT INTO Order_Products (Order_ID, Product_ID, Quantity) VALUES ('$order_id', '$product_id', '$quantity');";
+
+      $sql = "INSERT INTO Order_Products (Order_ID, Product_ID, Quantity) VALUES ($order_id, $product_id, $quantity);";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
       }
