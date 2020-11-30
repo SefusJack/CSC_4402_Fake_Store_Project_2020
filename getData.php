@@ -108,12 +108,12 @@ if ($result->num_rows > 0) {
             <div style="position: absolute;height: 35px;left: 20px;right: 20px;top:320px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 24px;line-height: 150%;display: flex;align-items: center;color: rgba(0, 0, 0, 0.87);">
                 $' . $cost . '
             </div>
-            <form style="width: 20px;position: absolute;height: 24px;left: 20px;right: 12px;/* top: calc(50% - 24px/2); */bottom: 83px;font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;">
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" step="1" value="1" style="width: 60px">
-            <button style="position: absolute;left: -2px;width:220;height: 32px;bottom: -80px;background: #FFFFFF;border: 1px solid #9DC2FF;box-sizing: border-box;border-radius: 4px;" onclick="addToCart(2, this)" method="post">
-                <p class="text-center" style="position: absolute;height: 24px;left: 12px;right: 12px;top: calc(50% - 24px/2);font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;">Add To Cart</p>
-            </button>
+            <form style="width: 20px;position: absolute;height: 24px;left: 20px;right: 12px;/* top: calc(50% - 24px/2); */bottom: 83px;font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1; onsubmit="return addToCart(2, this)" method="post"">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" step="1" value="1" style="width: 60px">
+                <button style="position: absolute;left: -2px;width:220;height: 32px;bottom: -80px;background: #FFFFFF;border: 1px solid #9DC2FF;box-sizing: border-box;border-radius: 4px;">
+                    <p class="text-center" style="position: absolute;height: 24px;left: 12px;right: 12px;top: calc(50% - 24px/2);font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;">Add To Cart</p>
+                </button>
             </form>
         </div>';
     }
