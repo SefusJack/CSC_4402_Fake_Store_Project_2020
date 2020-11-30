@@ -20,6 +20,16 @@ $snack = $_POST['snack'];
 $seafood = $_POST['seafood'];
 $dessert = $_POST['dessert'];
 
+echo($search);
+echo($sort);
+echo($fruit);
+echo($vegetable);
+echo($meat);
+echo($snack);
+echo($seafood);
+echo($dessert);
+
+
 $where = " WHERE";
 
 if ($search != "") {
