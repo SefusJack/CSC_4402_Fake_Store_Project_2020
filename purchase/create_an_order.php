@@ -1,5 +1,5 @@
 <?php
-$con = new mysqli("localhost", "store", "qwerty12qwaszx", "store");
+$con = new mysqli("localhost", "store", "Password", "store");
 if ($con->connect_error) {
   die("Connection failed: " . $con->connect_error);
 }
