@@ -12,7 +12,8 @@ if ($conn->connect_error) {
 }
 
 $sql = "SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1";
-echo($conn->query($sql)->fetch_assoc());
+echo($conn->query($sql)->fetch_assoc()["SUM"]);
+echo($conn->query($sql)->fetch_assoc()["SUM(Quantity * Cost)"]);
 
 $conn->close();
 ?>
