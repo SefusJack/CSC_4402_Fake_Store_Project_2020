@@ -6,7 +6,7 @@ if ($con->connect_error) {
 echo "Connected";
 
 $date = date('Y-m-d H:i:s');
-$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]');";
+$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) SELECT '0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]' WHERE (SELECT COUNT(*) FROM Cart WHERE Customer_ID=1) > 0;";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
