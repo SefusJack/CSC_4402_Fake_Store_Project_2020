@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
       ". $con->error;
       }
   }
-  $sql = "Update `Order` SET Cost = (SELECT SUM(Cost) FROM Order_Product NATURAL JOIN Product WHERE Order_ID = '$order_id') WHERE Order_ID = '$order_id';";
+  $sql = "Update `Order` SET Cost = (SELECT SUM(Cost) FROM Order_Products NATURAL JOIN Product WHERE Order_ID = '$order_id') WHERE Order_ID = '$order_id';";
   if ($con->query($sql)){
     echo "New record is inserted sucessfully";
   }
