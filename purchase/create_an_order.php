@@ -5,9 +5,9 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()["COUNT(*)"] <= 0) {
-  exit();
-}
+//if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()["COUNT(*)"] <= 0) {
+//  exit();
+//}
 
 $date = date('Y-m-d H:i:s');
 //$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) SELECT '0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]' WHERE (SELECT COUNT(*) FROM Cart WHERE Customer_ID=1) > 0;";
@@ -30,9 +30,7 @@ else{
   echo "Error: ". $sql . $con->error;
 }
 
-
-$sql = "SELECT * FROM Cart WHERE Customer_ID=1";
-$result = $con->query($sql);
+$result = $con->query("SELECT * FROM Cart WHERE Customer_ID=1");
 
 error_log("BEFORE IF", 0);
 if ($result->num_rows > 0) {
