@@ -163,7 +163,7 @@
     }
 
     function addToCart(id, el){
-        var elem = el.parentElement.childNodes[1];
+        var elem = el.childNodes[3];
         console.log(elem.value);
         $.ajax({
             url: 'add_to_cart.php',
