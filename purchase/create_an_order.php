@@ -8,7 +8,8 @@ echo "Connected";
 $sql = "SELECT * FROM `Order`;";
 $result = $con->query($sql);
 
-$order_id = $result->numrows+1;
+$order_id = $con->insert_id+1;
+echo $order_id;
 
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('100', '$date', '1', '1', '1');";
@@ -26,7 +27,6 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
       $product_id = $row["Product_ID"];
-      echo $product_id;
       $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id');";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
