@@ -32,7 +32,8 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
       $product_id = $row["Product_ID"];
-      $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id');";
+      $quantity = $row["Quantity"];
+      $sql = "INSERT INTO Order_Products (Order_ID, Product_ID) VALUES ('$order_id', '$product_id' , '$quantity');";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
       }
