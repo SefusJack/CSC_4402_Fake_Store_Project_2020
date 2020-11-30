@@ -8,7 +8,7 @@ echo "Connected";
 $sql = "SELECT * FROM `Order`;";
 $result = $con->query($sql);
 
-$order_id = $con->insert_id+1;
+$order_id = $con->insert_id;
 echo $order_id;
 
 $date = date('Y-m-d H:i:s');
