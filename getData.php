@@ -52,9 +52,9 @@ if ($where == " WHERE") {
 
 $where = substr($where, 0, -3);
 
-echo $where;
+//echo $where;
 
-$sql = "SELECT * FROM Product NATURAL JOIN Vendor";
+$sql = "SELECT * FROM Product NATURAL JOIN Vendor $where";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
