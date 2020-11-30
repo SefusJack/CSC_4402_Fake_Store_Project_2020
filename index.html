@@ -103,17 +103,9 @@
     $(".dropdown-item").click(function() {
         $(this).parent().parent().find("button").text($(this).text())
     })
-    //$(".form-check-inline").has("input.active").addClass("active-form-check-inline")
-    //$(".form-check-inline").has( "input.inactive)").addClass("inactive-form-check-inline")
 </script>
 
 <script type="text/javascript">
-    var start = 0;
-    var limit = 20;
-    var query = '';
-    var reachedMax = false;
-    var searched = false;
-
     $(document).ready(function () {
         onSubmit();
     });
@@ -148,13 +140,7 @@
                 dessert: $("#dessertRadio").is(":checked")
             },
             success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
-                }
+                $("#results").append(response);
             },
             error: function(err) {
                 console.log(err)
@@ -173,13 +159,7 @@
                 product_quantity: quantity
             },
             success: function (response) {
-                console.log(response)
-                if (response == "reachedMax")
-                    reachedMax = true;
-                else {
-                    start += limit;
-                    $("#results").append(response);
-                }
+                $("#results").append(response);
             },
             error: function(err) {
                 console.log(err)
