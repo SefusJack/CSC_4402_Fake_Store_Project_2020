@@ -88,16 +88,16 @@
     }
 
     function removeFromCart(id){
-        var address = document.getElementById('Address');
-        var payment = document.getElementById('Payment_Info');
+        //var address = document.getElementById('Address');
+        //var payment = document.getElementById('Payment_Info');
         $.ajax({
             url: 'create_an_order.php',
             dataType: 'text',
             method: "POST",
             data: {
                 customer_id: id,
-                customer_address = address,
-                customer_payment = payment
+                //customer_address = address,
+                //customer_payment = payment
             },
             success: function (response) {
                 console.log(response)
