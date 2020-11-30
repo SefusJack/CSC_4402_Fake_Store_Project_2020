@@ -39,10 +39,15 @@ if ($result->num_rows > 0) {
       error_log("TEST", 0);
       $product_id = $row["Product_ID"];
       $quantity = $row["Quantity"];
+      error_log($product_id, 0);
+      error_log($quantity, 0);
       
       
       $stock = $row["Stock"];
       $newstock = $stock - $quantity;
+      error_log($stock, 0);
+      error_log($newstock, 0);
+
       $sql = "UPDATE Product SET Stock='$newstock' WHERE Product_ID=$product_id AND Customer_ID=1";
       if ($con->query($sql)){
         echo "New record is inserted sucessfully";
