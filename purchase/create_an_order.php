@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
 
 $date = date('Y-m-d H:i:s');
 
-$sql = "INSERT INTO Order (Product_ID, Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('NULL', '100', '$date', $_POST[Address]', '1');";
+$sql = "INSERT INTO Order (Product_ID, Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('NULL', '100', '$date', '$_POST[Address]', '1');";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
