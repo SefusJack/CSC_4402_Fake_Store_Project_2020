@@ -1,7 +1,7 @@
 <?php
 $con = new mysqli("localhost", "store", "qwerty12qwaszx", "store");
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($con->connect_error) {
+  die("Connection failed: " . $con->connect_error);
 }
 echo "Connected";
 
@@ -9,8 +9,8 @@ echo "Connected";
 //$result = $con->query($sql);
 //$order_id = $result->numrows+1;
 
-$sql = "SELECT * FROM Cart WHERE Customer_ID=1;"
-$result = $con->query($sql);
+//$sql = "SELECT * FROM Cart WHERE Customer_ID=1;"
+//$result = $con->query($sql);
 echo "Connected2";
 /*
 if ($result->num_rows > 0) {
