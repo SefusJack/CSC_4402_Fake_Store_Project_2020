@@ -21,7 +21,9 @@ $seafood = $_POST['seafood'];
 $dessert = $_POST['dessert'];
 
 
+$sql = "SELECT * FROM Product NATURAL JOIN Vendor";
 $where = " WHERE";
+$orderby = "";
 
 if ($search != "") {
     $where .= " (Product_Name LIKE '%$search%' OR Vendor_Name LIKE '%$search%') AND";
@@ -52,16 +54,12 @@ if ($where == " WHERE") {
     $where = "";
 }
 
-
-$orderby = "";
-
 if ($sort == "Sort By A-Z") {
     $orderby = " ORDER BY Product_Name";
 }
 elseif ($sort == "Sort By Most Frequently Bought") {
-    $orderby = "";
-    ///
-    //$orderby = " ORDER BY ";
+    $sql = "SELECT * FROM `Order_Products` GROUP BY `Product_ID`";
+    $orderby = " ORDER BY Quantity DESC";
 }
 elseif ($sort == "Sort By Stock") {
     $orderby = " ORDER BY Stock DESC";
@@ -76,11 +74,10 @@ elseif ($sort == "Sort By Price High to Low") {
 
 //echo $where;
 
-$sql = "SELECT * FROM Product NATURAL JOIN Vendor $where $orderby";
 
 echo($sql);
 
-$result = $conn->query($sql);
+$result = $conn->query("$sql $where $orderby");
 
 if ($result->num_rows > 0) {
     // output data of each row
