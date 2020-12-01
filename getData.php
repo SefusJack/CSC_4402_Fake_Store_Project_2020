@@ -96,7 +96,11 @@ if ($result->num_rows > 0) {
 
         echo ('
         <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:480px; margin:20px; opacity:' . ($stock == 0 ? 0.5 : 1) . '">
+<<<<<<< HEAD
             <div style="position: absolute;width: 50px;height: 24px;left: 0px;top: 0px;background: #C4C4C4; border-bottom-right-radius: 5px;">
+=======
+            <div style="position: absolute;width: 50px;height: 24px;left: 0px;top: 0px;background: #C4C4C4; border-bottom-right-radius: 15px;">
+>>>>>>> parent of c6356e1... customer 2
                 <p class="text-center font-medium" style="color: #FFFFFF">
                     ' . $stock . '
                 </p>
