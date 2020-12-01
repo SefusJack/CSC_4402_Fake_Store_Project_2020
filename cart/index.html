@@ -24,6 +24,12 @@
                 <div id="results" style="display:grid;align-items: stretch;justify-items: stretch;grid-template-columns: repeat(5,1fr);">
                     
                 </div>
+                <div style="margin: 20; display: grid; grid-template-columns: repeat(1,2);">
+                    <p>Cost: <b id="total-cost"></b></p>
+                    
+                    <button type="submit" href="/purchase" class="btn btn-primary">Purchase
+                    </button>
+                </div>
             </div>
         </div>
     </body>
@@ -36,8 +42,21 @@
     function onSubmit() {
         getData();
     }
+
+    
     
     function getData() {
+        $.ajax({
+            url: '/getCost.php',
+            dataType: 'text',
+            success: function (response) {
+                $("#total-cost").text("$" + response);
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        });
+
         $.ajax({
             url: 'getData.php',
             dataType: 'text',

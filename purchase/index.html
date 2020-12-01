@@ -34,7 +34,7 @@
                     <input type="text" id="Address" name="Address" required="required"><br>
                     <label for="Payment_Info">Payment_Info:</label>
                     <input type="text" id="Payment_Info" name="Payment_Info " required="required"><br>
-                    <input type="submit" value="Purchase">
+                    <input type="submit" value="Purchase" class="btn btn-primary">
                 </form>
             </div>
         </div>
@@ -52,7 +52,7 @@
     
     function getData() {
         $.ajax({
-            url: 'getCost.php',
+            url: '/getCost.php',
             dataType: 'text',
             success: function (response) {
                 $("#total-cost").text("$" + response);
