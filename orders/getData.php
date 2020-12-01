@@ -18,14 +18,14 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         $order_id = $row["Order_ID"];
-        $order_cost = $row["Cost"];
+        $order_cost = number_format($row["Cost"], 2, '.', '');
         $date = $row["Date"];
         $address = $row["Address"];
         error_log("$order_id", 0);
         
         echo("<div style='border:1px solid #BBBBBB;border-radius: 4px; margin:5px; display:grid;align-items: stretch;justify-items: stretch;grid-template-columns: repeat(5,1fr);'>");
 
-        $sql = "SELECT * FROM Order_Products NATURAL JOIN Product WHERE Order_ID='$order_id'";
+        $sql = "SELECT * FROM Order_Products NATURAL JOIN Product NATURAL JOIN Vendor WHERE Order_ID='$order_id'";
         $result2 = $conn->query($sql);
         if ($result2->num_rows > 0) {
             while($row = $result2->fetch_assoc()){
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
                 $product_type = $row["Product_Type"];
                 $product_name = $row["Product_Name"];
                 $image_url = $row["Image_URL"];
-                $cost = $row["Cost"];
+                $cost = number_format($row["Cost"], 2, '.', '');
                 $quantity = $row["Quantity"];
 
                 echo '
@@ -63,9 +63,12 @@ if ($result->num_rows > 0) {
             }
         }
         echo('
-        <p>Total Cost: <b>' . $order_cost . '</b></p>
-        <p>Sent to: <b>' . $address . '</b></p>
-        <p>Bought at: <b>' . $date . '</b></p>
+        </div>
+        <div style="margin:20px">
+            <p>Total Cost: <b>$' . $order_cost . '</b></p>
+            <p>Sent to: <b>' . $address . '</b></p>
+            <p>Bought at: <b>' . $date . '</b></p>
+        </div>
         </div>');
     }
 } else {
