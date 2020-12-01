@@ -90,8 +90,8 @@ if ($result->num_rows > 0) {
         $cost = number_format($row["Cost"], 2, '.', '');
         $stock = $row["Stock"];
 
-        echo '
-        <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:480px; margin:20px">
+        echo ('
+        <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:480px; margin:20px; opacity=' . ($stock == 0 ? 0.5 : 1) . '">
             <div style="position: absolute;width: 50px;height: 24px;left: 0px;top: 0px;background: #C4C4C4; border-bottom-right-radius: 15px;">
                 <p class="text-center font-medium" style="color: #FFFFFF">
                     ' . $stock . '
@@ -112,15 +112,19 @@ if ($result->num_rows > 0) {
             </div>
             <div style="position: absolute;height: 35px;left: 20px;right: 20px;top:320px;font-family: Inter;font-style: normal;font-weight: bold;font-size: 24px;line-height: 150%;display: flex;align-items: center;color: rgba(0, 0, 0, 0.87);">
                 $' . $cost . '
-            </div>
-            <form style="width: 20px;position: absolute;height: 24px;left: 20px;right: 12px;/* top: calc(50% - 24px/2); */bottom: 83px;font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;" onsubmit="return addToCart(' . $product_id . ', this)" method="post">
+            </div>');
+            if ($stock !== 0) {
+                echo(
+            '<form style="width: 20px;position: absolute;height: 24px;left: 20px;right: 12px;/* top: calc(50% - 24px/2); */bottom: 83px;font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;" onsubmit="return addToCart(' . $product_id . ', this)" method="post">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" step="1" value="1" max="' . $stock . '" min="1" style="width: 60px">
                 <button style="position: absolute;left: -2px;width:220;height: 32px;bottom: -80px;background: #FFFFFF;border: 1px solid #9DC2FF;box-sizing: border-box;border-radius: 4px;">
                     <p class="text-center" style="position: absolute;height: 24px;left: 12px;right: 12px;top: calc(50% - 24px/2);font-family: Inter;font-style: normal;font-weight: 500;font-size: 14px;color: #2264D1;">Add To Cart</p>
                 </button>
-            </form>
-        </div>';
+            </form>');
+            }
+            echo('
+        </div>');
     }
 } else {
   echo "0 results";
