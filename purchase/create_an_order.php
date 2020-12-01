@@ -5,12 +5,12 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
-if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=2")->fetch_assoc()["COUNT(*)"] <= 0) {
+if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()["COUNT(*)"] <= 0) {
   exit();
 }
 
 $date = date('Y-m-d H:i:s');
-$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ((SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=2), '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]');";
+$sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ((SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1), '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]');";
 if ($con->query($sql)){
   echo "New record is inserted sucessfully";
 }
@@ -20,7 +20,7 @@ else{
 }
 $order_id = $con->insert_id;
 
-//$sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=2) WHERE Order_ID = '$order_id';";
+//$sql = "Update `Order` SET Cost = (SELECT SUM(Quantity * Cost) FROM Cart NATURAL JOIN Product WHERE Customer_ID=1) WHERE Order_ID = '$order_id';";
 //if ($con->query($sql)){
 //  echo "New record is inserted sucessfully";
 //}
@@ -30,7 +30,7 @@ $order_id = $con->insert_id;
 //}
 
 
-$sql = "SELECT * FROM Cart WHERE Customer_ID=2";
+$sql = "SELECT * FROM Cart WHERE Customer_ID=1";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
