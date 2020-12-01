@@ -73,7 +73,7 @@ elseif ($sort == "Sort By Price High to Low") {
 }
 
 
-echo("$sql $where $orderby");
+//echo("$sql $where $orderby");
 
 $result = $conn->query("$sql $where $orderby");
 
