@@ -4,7 +4,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
-$sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
+$sql = "SELECT Product_ID, Quantity FROM Cart WHERE Customer_ID=2 AND Product_ID=$_POST[product_id]";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()){
@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
     $quantity = "$_POST[product_quantity]" + $quantity;
   }
   error_log("$_POST[product_id]", 0);
-  $sql = "UPDATE Cart SET Quantity=$quantity WHERE Customer_ID=1 AND Product_ID=$_POST[product_id]";
+  $sql = "UPDATE Cart SET Quantity=$quantity WHERE Customer_ID=2 AND Product_ID=$_POST[product_id]";
   if ($con->query($sql)){
     echo "New record is inserted sucessfully";
   }
