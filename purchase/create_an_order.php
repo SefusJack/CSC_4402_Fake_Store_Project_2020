@@ -26,7 +26,7 @@ else{
 }
 
 
-$sql = "SELECT * FROM Cart NATURAL JOIN Product WHERE Customer_ID=1";
+$sql = "SELECT * FROM Cart WHERE Customer_ID=1";
 $result = $con->query($sql);
 if ($result->num_rows > 0) {
   // output data of each row
