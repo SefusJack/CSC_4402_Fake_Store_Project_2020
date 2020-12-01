@@ -77,7 +77,7 @@
     function removeFromCart(id){
         var address = document.getElementById('Address').value;
         var payment = document.getElementById('Payment_Info').value;
-        console.log(address);
+        $(location).attr('href', 'http://stackoverflow.com')
         $.ajax({
             url: 'create_an_order.php',
             dataType: 'text',
