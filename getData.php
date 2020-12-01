@@ -19,6 +19,7 @@ $meat = $_POST['meat'];
 $snack = $_POST['snack'];
 $seafood = $_POST['seafood'];
 $dessert = $_POST['dessert'];
+$beverage = $_POST['beverage'];
 
 
 $sql = "SELECT * FROM Product NATURAL JOIN Vendor";
@@ -46,6 +47,9 @@ if ($seafood == "true") {
 }
 if ($dessert == "true") {
     $where .= " Product_Type LIKE 'Dessert' OR ";
+}
+if ($beverage == "true") {
+    $where .= " Product_Type LIKE 'Beverage' OR ";
 }
 
 $where = substr($where, 0, -3);
