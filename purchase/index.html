@@ -34,7 +34,7 @@
                     <input type="text" id="Address" name="Address" required="required"><br>
                     <label for="Payment_Info">Payment_Info:</label>
                     <input type="text" id="Payment_Info" name="Payment_Info " required="required"><br>
-                    <button type="submit" onclick="location.href='/orders'" class="btn btn-primary">Purchase</button>
+                    <button type="submit" class="btn btn-primary">Purchase</button>
                 </form>
             </div>
         </div>
@@ -88,24 +88,9 @@
                 customer_payment: payment
             },
             success: function (response) {
-                $.ajax({
-                    url: 'remove_from_cart.php',
-                    dataType: 'text',
-                    method: "POST",
-                    data: {
-                        customer_id: id,
-                    },
-                    success: function (response) {
-                        $("#results").append(response);
-                    },
-                    error: function(err) {
-                        console.log(err)
-                    }
-                });
-
                 $("#results").append(response);
                 
-                
+                window.location.replace("/orders");
             },
             error: function(err) {
                 console.log(err)
