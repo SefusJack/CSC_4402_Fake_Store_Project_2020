@@ -11,7 +11,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Cart NATURAL JOIN Product WHERE Customer_ID=2";
+$sql = "SELECT * FROM Cart NATURAL JOIN Product WHERE Customer_ID=1";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

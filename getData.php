@@ -95,8 +95,8 @@ if ($result->num_rows > 0) {
         $stock = $row["Stock"];
 
         echo ('
-        <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:480px; margin:20px; opacity:' . ($stock == 0 ? 0.5 : ) . '">
-            <div style="position: absolute;width: 50px;height: 24px;left: 0px;top: 0px;background: #C4C4C4; border-bottom-right-radius: 5px;">
+        <div style="position:relative; background: #FFFFFF;border: 1px solid #BBBBBB;border-radius: 4px; width:260px; height:480px; margin:20px; opacity:' . ($stock == 0 ? 0.5 : 1) . '">
+            <div style="position: absolute;width: 50px;height: 24px;left: 0px;top: 0px;background: #C4C4C4; border-bottom-right-radius: 15px;">
                 <p class="text-center font-medium" style="color: #FFFFFF">
                     ' . $stock . '
                 </p>
