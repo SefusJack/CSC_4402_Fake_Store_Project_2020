@@ -5,6 +5,10 @@ if ($con->connect_error) {
 }
 echo "Connected";
 
+if ($con->query("SELECT COUNT(*) FROM Cart WHERE Customer_ID=1")->fetch_assoc()[0] <= 0) {
+  exit();
+}
+
 $date = date('Y-m-d H:i:s');
 $sql = "INSERT INTO `Order` (Cost, Date, Address, Customer_ID, Payment_Info) VALUES ('0', '$date', '$_POST[customer_address]', '1', '$_POST[customer_payment]');";
 if ($con->query($sql)){
