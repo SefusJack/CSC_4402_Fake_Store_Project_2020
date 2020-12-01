@@ -3,19 +3,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <body style="margin-bottom: 29px; background-color: lightgrey; padding: 0; margin:0">
         <nav style="padding: 6; background-color: white; display: flex; justify-content: space-between; margin:0; margin-bottom: 6;">
-            <div style="font-size: x-large; margin:auto;margin-left:5">
+            <a style="font-size: x-large; margin:auto;margin-left:5; font-weight: bolder; color: cornflowerblue;" href="./">
                 SHOP-4402
-            </div>
-
+            </a>
             <ul style="display:flex; align-items: center;margin-bottom: 0;">
-                <button style="margin:3">
-                    <a href="http://54.90.48.198/login">Login</a>
-                </button>
-                
-                <button style="margin:3;">
-                    <a href="http://54.90.48.198/sell_item">Sell Item</a>
-                </button>
-                
+                <p style="position: absolute;right: 250px;top: 15px;">Welcome, Customer</p>
+                <div style="margin:3;" class="btn btn-primary">
+                    <a href="http://54.90.48.198/cart" style="color: cornsilk;">Cart</a>
+                </div>
+                <div style="margin:3;" class="btn btn-primary">
+                    <a href="http://54.90.48.198/orders" style="color: cornsilk;">Orders</a>
+                </div>
+                <div style="margin:3;" class="btn btn-primary">
+                    <a href="http://54.90.48.198/sell_item" style="color: cornsilk;">Sell Item</a>
+                </div>
             </ul>
         </nav>
         <div style="justify-content: center; display: flex;">
@@ -101,7 +102,7 @@
                         console.log(err)
                     }
                 });
-                
+
                 $("#results").append(response);
                 
                 
